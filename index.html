@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poké Ball</title>
+    <style>
+        body{
+            background-color: #6CB3A9;
+            margin:0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 60vh;
+            margin: 0;
+        }
+        .head{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .pokeball {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(to bottom,#D25B70, 50%,white  50%);
+            border-radius: 50%;
+        }
+
+        .pokeball::before, .pokeball::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #781728;
+        }
+
+        .pokeball::before {
+            top: 50%;
+            width: 100%;
+            height: 10px;
+        }
+
+        .pokeball::after {
+            top: 50%;
+            width: 60px;
+            height: 60px;
+            background: #F6DF96;
+            border: 10px solid #781728;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+        .control{
+            display:flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        button{
+            height:50px;
+            width:100px;
+            background-color:#F6DF96;
+            border:solid #F6DF96;
+        }
+        .instructions{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin:0;
+            padding:0;
+        }
+    </style>
+</head>
+<body>
+     <div class="head"><h1>Pokemon Music</h1></div>
+     <div class="instructions"><h2>Click pokeball to switch music</h2></div>
+     <audio id="home1" src="Pokemon FireRedLeafGreen- Pallet Town.mp3"></audio>
+     <audio id="home2" src="Pokemon HGSS Music - New Bark Town.mp3"></audio>
+     <audio id="home3" src="Pokemon RubySapphireEmerald- Littleroot Town.mp3"></audio>
+     <audio id="home4" src="Twinleaf Town (Day) - Pokémon Brilliant Diamond and Shining Pearl OST (Gamerip).mp3"></audio>
+     <audio id="home5" src="Nuvema Town - Pokémon Black & Pokémon White (OST).mp3"></audio>
+     <audio id="home5.2" src="Pokemon Black & White 2 OST Aspertia City.mp3"></audio>
+     <audio id="home6" src="Pokemon X & Y OST Vaniville Town Music [iW7tEie8g_c].mp3"></audio>
+     <audio id="home7" src="Pokemon Sun & Moon OST Route 1 Music.mp3"></audio>
+     <audio id="home8" src="Postwick - Pokémon Sword and Shield (OST).mp3"></audio>
+     <audio id="home9" src="Cabo Poco (Outside) - Pokémon Scarlet and Violet OST (Gamerip).mp3"></audio>
+
+    <div class="container"><div id="poke" class="pokeball"></div></div>
+    <div class="control"><button id="play">Play</button><button id="pause">Pause</button></div>
+</body>
+<script>
+    let pl=document.getElementById("play")
+    let pa=document.getElementById("pause")
+    let b=document.getElementById("poke")
+    let m=document.getElementById("home1")
+    let i=2;
+    function switchMusic(){
+        m.pause();
+        m.currentTime = 0; 
+        switch(i){
+            case 1:
+                m=document.getElementById("home1")
+                i++;
+                break;
+            case 2:
+                m=document.getElementById("home2")
+                i++;
+                break;
+            case 3:
+                m=document.getElementById("home3")
+                i++;
+                break;
+            case 4:
+                m=document.getElementById("home4")
+                i++;
+                break;
+            case 5:
+                m=document.getElementById("home5")
+                i++;
+                break;
+            case 6:
+                m=document.getElementById("home5.2")
+                i++;
+                break;
+            case 7:
+                m=document.getElementById("home6")
+                i++;
+                break;
+            case 8:
+                m=document.getElementById("home7")
+                i++;
+                break;
+            case 9:
+                m=document.getElementById("home8")
+                i++;
+                break;
+            case 10:
+                m=document.getElementById("home9")
+                i=1;
+                break;
+        }
+    }
+    function MusicOn(){
+        m.play();
+    }
+    function MusicPause(){
+        m.pause();
+    }
+    b.addEventListener("click",switchMusic)
+    pl.addEventListener("click",MusicOn)
+    pa.addEventListener("click",MusicPause)
+</script>
+</html>
+
